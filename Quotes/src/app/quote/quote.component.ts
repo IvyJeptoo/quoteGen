@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Quote } from '../quote'
+
+
 
 @Component({
   selector: 'app-quote',
@@ -7,12 +9,20 @@ import { Quote } from '../quote'
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
+
+
    quotes: Quote[]= [
-    new Quote(1,'Ipo siku','a quote said by every comrade who wants to be rich','comrade'),
-    new Quote(2, 'Jambo Kenya', 'said by every white person who visits Kenya', 'mzungu'),
-    new Quote(3, 'Hakuna Matata', 'said by pumba and timon in lion King', 'Simba'),
+    new Quote(1,'Ipo siku','a quote said by every comrade who wants to be rich','Comrade', 'Kafukuswi', new Date(2022,1,2), 0, 0),
+    new Quote(2, 'Jambo Kenya', 'said by every white person who visits Kenya', 'Mzungu', 'Alehandro', new Date(2022,2,4), 0, 0),
+    new Quote(3, 'Hakuna Matata', 'said by Pumba and Timon in Lion King', 'Simba','Scar', new Date(2022,4,2), 0, 0),
 
   ] ;
+
+  addNewQuote(quote: any){
+    let quoteLength = this.quotes.length;
+    quote.id = quoteLength+1;
+    this.quotes.push(quote)
+  }
 
   toggleDetails(index:number){
     this.quotes[index].showDescription= !this.quotes[index].showDescription;
@@ -26,6 +36,7 @@ export class QuoteComponent implements OnInit {
       }
     }
   }
+ 
 
   constructor() { }
 
