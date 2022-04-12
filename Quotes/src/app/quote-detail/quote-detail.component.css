@@ -1,0 +1,16 @@
+.votes{
+    display: flex;
+}
+.contents{
+    display: flex;
+    justify-content: space-between;
+}
+h5{
+    margin-top: 30px;
+    font-weight: 700;
+}
+.details p{
+    padding-top: 20px;  
+    color: rgb(94, 100, 79);  
+    
+}
