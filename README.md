@@ -12,7 +12,7 @@
 ## Description
  + The Project allows a user to view available quotes and input their own quote to the available ones using a form input. They have the freedom to downvote or upvote a quote and even delete it
  + Details about a particular quote is provided which includes when the quote was created.  
- + Live Link
+ + Live Link- https://ivyjeptoo.github.io/quoteGen/
   
  
  ### Requirements
