@@ -1,21 +1,26 @@
-
+<section>
   <div class="container">
-  <h1>QuoteGen</h1>
+      <h1>QuoteGen</h1>
+      <hr>
+      <div class="head">
+  <h2>“Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code.” <br> ~
+    Dan Salomon ~</h2>
+  
+  </div>
   <hr>
   <div class="row">  
-      <!-- <hr> -->
+      
       <div class="col-md-6">
-          <h2>Famous Quotes</h2>
+          <h2 style="color: #00868B;">Famous Quotes</h2>
           <hr>
-      <div *ngFor="let quote of quotes; let i=index" class="quote-card">          
-          <h3 >"{{quote.quote}}" </h3>
-
+      <div *ngFor="let quote of quotes; let i=index" class="quote-card"> 
           <div>
-          <button (click)="toggleDetails(i)" class="btn btn-outline-dark btn-sm">Quote Details</button>
-          </div>
-          <!-- <div>
-            <span class='deleteicon' (click)='deleteQuote(quote) title="Delete Quote"> &times;</span>
-          </div> -->
+              <h3 style="color: rgb(94, 100, 79);"> <i>  "{{quote.quote}}" </i> </h3>
+          </div>                                   
+    
+          <div>
+          <button (click)="toggleDetails(i)" class="btn btn-sm" >Quote Details</button>
+          </div>         
         
 
           <div *ngIf="quote.showDescription">
@@ -29,4 +34,5 @@
     </div>
 
 </div>
+</section>
 
