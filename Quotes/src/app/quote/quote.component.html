@@ -1,9 +1,13 @@
-<section>
+
   <div class="container">
       <h1>QuoteGen</h1>
       <hr>
-      <div class="head">
-  <h2>“Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code.” <br> ~
+ <div class="head">
+  <h2 class="animate__animated animate__swing animate__repeat-4 animate__slower-3s">“Sometimes it pays to stay in bed on
+    Monday, rather
+    than spending the rest
+    of the week
+    debugging Monday’s code.” <br> ~
     Dan Salomon ~</h2>
   
   </div>
@@ -13,26 +17,83 @@
       <div class="col-md-6">
           <h2 style="color: #00868B;">Famous Quotes</h2>
           <hr>
+
+
       <div *ngFor="let quote of quotes; let i=index" class="quote-card"> 
-          <div>
-              <h3 style="color: rgb(94, 100, 79);"> <i>  "{{quote.quote}}" </i> </h3>
-          </div>                                   
-    
-          <div>
-          <button (click)="toggleDetails(i)" class="btn btn-sm" >Quote Details</button>
-          </div>         
+          <div *ngIf="quote === highestVote; then high; else low"></div>
+
+          <ng-template #high>
+              <div appHighlight>
+              <div>
+                <h3 style="color: rgb(94, 100, 79);"> <i> "{{quote.quote}}" </i> </h3>
+              </div>
+              <div class="contents">
+                <div class="votes">
+
+                  <div (click)="upvote(i)">
+                    <span  class="iconify" data-icon="bxs:upvote" data-width="35" data-height="35"></span>
+                  </div>
+                  <p>{{quote.upvote}}</p> &nbsp;&nbsp;&nbsp;
+                  <p>{{quote.downvote}}</p>
+                  <div (click)="downvote(i)">
+                    <span  class="iconify" data-icon="bxs:downvote" data-width="35" data-height="35"></span>
+                  </div>
+
+                </div>
+
+                <div>
+                  <button (click)="toggleDetails(i)" class="btn btn-sm">Quote Details</button>
+                </div>
+                </div>
+                <div *ngIf="quote.showDescription">
+                  <app-quote-detail [quote]="quote" (deleteQuote)="deleteQuote($event,i)"></app-quote-detail>
+                </div>
+              </div>
+
+          </ng-template>
+
+          <ng-template #low>
+                <div>
+                  <div>
+                    <h3 style="color: rgb(94, 100, 79);"> <i> "{{quote.quote}}" </i> </h3>
+                  </div>
+                  <div class="contents">
+                      <div>
+                        <button (click)="toggleDetails(i)" class="btn btn-sm">Quote Details</button>
+                      </div>
+
+                    <div class="votes">
+
+                      <div (click)="upvote(i)">
+                        <span style="background: none;" class="iconify" data-icon="bxs:upvote" data-width="35" data-height="35"></span>
+                      </div> &nbsp;&nbsp;&nbsp;
+                      <p>{{quote.upvote}}</p> &nbsp;&nbsp;&nbsp;
+                      <div (click)="downvote(i)">
+                          <span class="iconify" data-icon="bxs:downvote" data-width="35" data-height="35"></span>
+                        </div>&nbsp;&nbsp;&nbsp;
+                        <p>{{quote.downvote}}</p>
+
+                    </div>
+
+                    
+                  </div>
+                  <div *ngIf="quote.showDescription">
+                    <app-quote-detail [quote]="quote" (deleteQuote)="deleteQuote($event,i)"></app-quote-detail>
+                  </div>
+                </div>
+
+          </ng-template>
+                 
         
 
-          <div *ngIf="quote.showDescription">
-          <app-quote-detail  [quote]="quote" (isComplete)="deleteQuote($event,i)"></app-quote-detail>
-         </div>
+          
         </div>
      </div>
      <div class="col-md-6">
-         <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+         <app-quote-form (onAddQuote)="addNewQuote($event)"></app-quote-form>
      </div>
     </div>
 
 </div>
-</section>
+
 

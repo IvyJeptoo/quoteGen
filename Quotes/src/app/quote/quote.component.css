@@ -31,3 +31,11 @@
 h2{
     color: rgb(94, 100, 79);
 }
+.votes {
+    display: flex;
+}
+.contents{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

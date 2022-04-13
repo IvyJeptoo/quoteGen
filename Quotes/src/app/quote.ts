@@ -1,12 +1,20 @@
 export class Quote {
-    // id!: number;
-    // quote!: string;
-    // description!: string;
-    // author!: string;
-    // submitter!: string;
+    public upvote: number; 
+    public downvote: number;
+    
     showDescription: boolean;
-    constructor(public id:number, public quote: string, public description: string, public author: string){
+    constructor(
+        
+         
+        public quote: string, 
+        public description: string, 
+        public author: string, 
+        public submit: string, 
+        public created_at: Date, 
+         ){
         this.showDescription=false;
+        this.upvote = 0;
+        this.downvote = 0;
     }
 
 }
