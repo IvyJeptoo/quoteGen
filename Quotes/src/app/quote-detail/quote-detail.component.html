@@ -1,2 +1,10 @@
-<p>{{quote.description}}</p>
-<button (click)="deleteQuote(true)">Delete Quote</button>
+<h5>{{quote.description}}</h5>
+
+<div class="details">
+<p>Quote by: {{quote.author}}</p>
+<p>Submitted by: {{quote.submit}}</p>
+<p>created: {{quote.created_at|dateCount}} ago</p>
+</div>
+
+<button (click)="delete(true)" class="btn btn-outline-danger btn-sm" >Delete Quote</button>
+
